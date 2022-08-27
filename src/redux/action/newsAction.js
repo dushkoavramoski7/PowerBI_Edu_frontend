@@ -8,7 +8,6 @@ export const newsAction = {
                 type: FETCH_NEWS,
                 news: resp.data
             })
-            console.log(resp.data)
         })
     }
 }

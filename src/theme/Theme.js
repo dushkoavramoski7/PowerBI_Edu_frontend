@@ -14,8 +14,6 @@ export const theme = createTheme({
                     "&:hover": {
                         color: 'rgba(229, 170, 10)',
                         cursor: 'pointer',
-                        borderBottom: '1px dotted rgb(229, 170, 22)',
-                        borderRadius: 15
                     }
                 },
             }
@@ -28,6 +26,10 @@ export const theme = createTheme({
             "&:hover": {
                 color: 'rgba(229, 170, 10)',
             }
+        },
+        bodyStyle: {
+            backgroundColor: 'whiteSmoke',
+            fontFamily: "system-ui",
         }
     }
 })

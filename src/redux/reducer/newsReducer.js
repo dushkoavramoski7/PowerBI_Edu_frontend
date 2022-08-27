@@ -1,6 +1,5 @@
 import {FETCH_NEWS} from "../actionTypes";
 
-
 const initialState = {
     news: []
 }
