@@ -13,7 +13,7 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 documentations: action.documentations,
-                docExpand: action.documentations.map((doc) => ([doc.id, false]))
+                docExpand: action.documentations.map((doc) => ([doc.id, true]))
             }
         }
         case EXPAND_COLLAPSE_DOC: {

@@ -31,9 +31,8 @@ function DocumentationsView() {
         <>
             <MenuTopBar active={'Documentations'}/>
             <div className={`${classes.bodyStyle} p-3`}>
-                <div className={'container p-1'} style={{marginTop: 70}}>
-                    <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
-                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Desktop Documentations</span>
+                <div className={'container'} style={{marginTop: 70}}>
+                    <div className={'col-6'}  style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}><span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>PowerBI - Desktop Documentations</div>
                         <div className={'row p-3'}>
                         {documentations && documentations.filter((item) => item.service === 'PowerBI Desktop').map((item) => {
                             return (

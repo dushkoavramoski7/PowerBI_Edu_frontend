@@ -36,7 +36,7 @@ function NewsView() {
         <>
             <MenuTopBar active={'News'}/>
             <div className={`${classes.bodyStyle} p-3`}>
-                <div className={'container pt-1'} style={{marginTop: 70}}>
+                <div className={'container'} style={{marginTop: 70}}>
                     <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Desktop News</span>
                     <div className={'p-3'}>
@@ -102,7 +102,7 @@ function NewsView() {
                     <span style={{borderLeft: '5px solid rgba(7, 144, 168)', marginRight: 7}}/>
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Mobile News</span>
                     <div className={'p-3'}>
-                        {news && news.filter(item => item.service === 'PowerBI Mobile').map((item, i) => {
+                        {news && news.filter(item => item.service === 'PowerBI Mobile').map((item) => {
                             return (
                                 <div className={'mb-3'}>
                                     <div className={'font-weight-bold w-100'}
@@ -164,7 +164,7 @@ function NewsView() {
                     <span style={{borderLeft: '5px solid rgba(168, 81, 10, .9)', marginRight: 7}}/>
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Service News</span>
                     <div className={'p-3'}>
-                        {news && news.filter(item => item.service === 'PowerBI Service').map((item, i) => {
+                        {news && news.filter(item => item.service === 'PowerBI Service').map((item) => {
                             return (
                                 <div className={'mb-3'}>
                                     <div className={'font-weight-bold w-100'}
