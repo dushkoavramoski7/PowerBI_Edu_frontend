@@ -1,4 +1,4 @@
-import {FETCH_DOCUMENTATIONS, EXPAND_COLLAPSE_DOC} from "../actionTypes";
+import {FETCH_DOCUMENTATIONS, EXPAND_COLLAPSE_DOC, EXPAND_COLLAPSE_SERVICE} from "../actionTypes";
 import axios from "../../axios/axiosInstance"
 
 export const documentationsAction = {
@@ -8,13 +8,19 @@ export const documentationsAction = {
                 type: FETCH_DOCUMENTATIONS,
                 documentations: resp.data
             })
-            console.log(resp.data)
         })
     },
-    expand_collapseDoc (docId) {
+    expand_collapseDoc (docId, value) {
         return {
             type: EXPAND_COLLAPSE_DOC,
-            id: docId
+            id: docId,
+            value: value
+        }
+    },
+    expand_collapseService (service) {
+        return {
+            type: EXPAND_COLLAPSE_SERVICE,
+            service: service
         }
     }
 }

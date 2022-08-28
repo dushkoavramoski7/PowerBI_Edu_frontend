@@ -14,6 +14,8 @@ function DocumentationsView() {
     const dispatch = useDispatch();
     const documentations = useSelector(state => state.documentations.documentations);
     const docExpand = useSelector(state => state.documentations.docExpand);
+    const serviceExpand = useSelector(state => state.documentations.serviceExpand);
+
 
 
     useEffect(() => {
@@ -24,11 +26,23 @@ function DocumentationsView() {
 
 
     const expandDocFunc = (docId) => {
-        dispatch(documentationsAction.expand_collapseDoc(docId));
+        let docValue = docExpand.find((doc) => doc[0] === docId)[1];
+        if(docValue === true) {
+            dispatch(documentationsAction.expand_collapseDoc(docId, false));
+        }
+        else {
+            dispatch(documentationsAction.expand_collapseDoc(docId, true));
+        }
     }
 
-    const expandAllDocInCategory = (category) => {
-        dispatch(documentationsAction.expand_collapseDoc(docId));
+    const expandAllDocInService = (service) => {
+        let serValue = serviceExpand.find((ser) => ser[0] === service)[1];
+        let value;
+        value = serValue !== true;
+        documentations.filter((item) => item.service === service).map((doc) => {
+            dispatch(documentationsAction.expand_collapseDoc(doc.id, value));
+        })
+        dispatch(documentationsAction.expand_collapseService(service));
     }
 
     return (
@@ -38,11 +52,11 @@ function DocumentationsView() {
                 <div className={'container'} style={{marginTop: 70}}>
                     <div className={'col-6'}  style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}><span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>PowerBI - Desktop Documentations
                         <IconButton size={'small'} onClick={() => {
-                            expandAllDocInCategory('PowerBI Desktop')
+                            expandAllDocInService('PowerBI Desktop')
                         }}>
-                            {docExpand.find((doc) => doc[0] === item.id)[1] === true ?
-                                <KeyboardArrowUpRoundedIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10, .8)'}}/> :
-                                <KeyboardArrowDownRoundedIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10, .8)'}}/>}
+                            {serviceExpand.find((service) => service[0] === 'PowerBI Desktop')?.[1] === true ?
+                                <KeyboardArrowUpRoundedIcon fontSize={'small'}/> :
+                                <KeyboardArrowDownRoundedIcon fontSize={'small'}/> }
                         </IconButton>
                     </div>
                         <div className={'row p-3'}>
@@ -81,8 +95,15 @@ function DocumentationsView() {
 
                     {/*----------*/}
 
-                    <span style={{borderLeft: '5px solid rgba(7, 144, 168)', marginRight: 7}}/>
-                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Service Documentations</span>
+                    <div className={'col-6'}  style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}><span style={{borderLeft: '5px solid rgba(7, 144, 168)', marginRight: 7}}/>PowerBI - Mobile Documentations
+                        <IconButton size={'small'} onClick={() => {
+                            expandAllDocInService('PowerBI Mobile')
+                        }}>
+                            {serviceExpand.find((service) => service[0] === 'PowerBI Mobile')?.[1] === true ?
+                                <KeyboardArrowUpRoundedIcon fontSize={'small'}/> :
+                                <KeyboardArrowDownRoundedIcon fontSize={'small'}/> }
+                        </IconButton>
+                    </div>
                     <div className={'row p-3'}>
                         {documentations && documentations.filter((item) => item.service === 'PowerBI Mobile').map((item) => {
                             return (
@@ -122,8 +143,15 @@ function DocumentationsView() {
 
                         {/*----------*/}
 
-                        <span style={{borderLeft: '5px solid rgba(168, 81, 10, .9)', marginRight: 7}}/>
-                        <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Service Documentations</span>
+                    <div className={'col-6'}  style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}><span style={{borderLeft: '5px solid rgba(168, 81, 10, .9)', marginRight: 7}}/>PowerBI - Service Documentations
+                        <IconButton size={'small'} onClick={() => {
+                            expandAllDocInService('PowerBI Service')
+                        }}>
+                            {serviceExpand.find((service) => service[0] === 'PowerBI Service')?.[1] === true ?
+                                <KeyboardArrowUpRoundedIcon fontSize={'small'}/> :
+                                <KeyboardArrowDownRoundedIcon fontSize={'small'}/> }
+                        </IconButton>
+                    </div>
                             <div className={'row p-3'}>
                                 {documentations && documentations.filter((item) => item.service === 'PowerBI Service').map((item) => {
                                     return (
