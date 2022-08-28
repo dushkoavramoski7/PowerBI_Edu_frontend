@@ -27,12 +27,24 @@ function DocumentationsView() {
         dispatch(documentationsAction.expand_collapseDoc(docId));
     }
 
+    const expandAllDocInCategory = (category) => {
+        dispatch(documentationsAction.expand_collapseDoc(docId));
+    }
+
     return (
         <>
             <MenuTopBar active={'Documentations'}/>
             <div className={`${classes.bodyStyle} p-3`}>
                 <div className={'container'} style={{marginTop: 70}}>
-                    <div className={'col-6'}  style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}><span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>PowerBI - Desktop Documentations</div>
+                    <div className={'col-6'}  style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}><span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>PowerBI - Desktop Documentations
+                        <IconButton size={'small'} onClick={() => {
+                            expandAllDocInCategory('PowerBI Desktop')
+                        }}>
+                            {docExpand.find((doc) => doc[0] === item.id)[1] === true ?
+                                <KeyboardArrowUpRoundedIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10, .8)'}}/> :
+                                <KeyboardArrowDownRoundedIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10, .8)'}}/>}
+                        </IconButton>
+                    </div>
                         <div className={'row p-3'}>
                         {documentations && documentations.filter((item) => item.service === 'PowerBI Desktop').map((item) => {
                             return (
