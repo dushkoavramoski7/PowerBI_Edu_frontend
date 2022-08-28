@@ -19,6 +19,7 @@ function NewsView() {
     const news = useSelector(state => state.news.news);
 
     useEffect(() => {
+        window.scrollTo(0, 0);
         dispatch(newsAction.fetchNews());
     }, []);
 
@@ -35,7 +36,7 @@ function NewsView() {
         <>
             <MenuTopBar active={'News'}/>
             <div className={`${classes.bodyStyle} p-3`}>
-                <div className={'container'} style={{marginTop: 70}}>
+                <div className={'container pt-1'} style={{marginTop: 70}}>
                     <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Desktop News</span>
                     <div className={'p-3'}>

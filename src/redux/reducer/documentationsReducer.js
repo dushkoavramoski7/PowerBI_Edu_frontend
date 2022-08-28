@@ -1,7 +1,10 @@
-import {FETCH_DOCUMENTATIONS} from "../actionTypes";
+import {FETCH_DOCUMENTATIONS, EXPAND_COLLAPSE_DOC} from "../actionTypes";
+import {replaceObjInArray} from "../../utils/utils";
+
 
 const initialState = {
-    documentations: []
+    documentations: [],
+    docExpand: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -9,7 +12,17 @@ const reducer = (state = initialState, action) => {
         case FETCH_DOCUMENTATIONS: {
             return {
                 ...state,
-                documentations: action.news
+                documentations: action.documentations,
+                docExpand: action.documentations.map((doc) => ([doc.id, false]))
+            }
+        }
+        case EXPAND_COLLAPSE_DOC: {
+            let oldDoc = state.docExpand.find((doc) => doc[0] === action.id);
+            console.log(oldDoc)
+            let newDoc = [action.id, !oldDoc[1]];
+            return {
+                ...state,
+                docExpand: replaceObjInArray(newDoc, oldDoc, state.docExpand)
             }
         }
         default:
