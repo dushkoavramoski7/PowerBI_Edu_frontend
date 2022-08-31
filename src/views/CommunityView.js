@@ -137,9 +137,10 @@ function CommunityView() {
     const showDocuments = () => {
         let files = [];
         {
-            documents && documents.slice(startOffset, startOffset + 5).map((doc) => {
+            documents && documents.slice(startOffset, startOffset + 5).map((doc, i) => {
                 files.push(
-                    <div className={`col-2 d-flex justify-content-center mb-5 position-relative ${classes.greyHover}`}>
+                    <div className={`col-2 d-flex justify-content-center mb-5 position-relative ${classes.greyHover}`}
+                    style={(startOffset + i  + 1 === documents.length) && doc.shared ? {backgroundColor: 'rgba(229, 170, 10, .05)'} : {}}>
                         <div className={'row text-center'}>
                             <div className={'d-flex justify-content-center ml-auto'}>
                                 <a style={{width: '80px'}} className={'mb-2 mt-3'}
@@ -178,7 +179,13 @@ function CommunityView() {
                                         color: 'rgba(0,0,0,.55)'
                                     }}><i>{doc.formattedDateUpload}</i></span>
                                 </div>
-
+                                {(startOffset + i  + 1 === documents.length) && doc.shared ?
+                                <i className={'mb-3'} style={{
+                                    fontSize: '13px',
+                                    color: 'rgba(0,0,0,.55)'
+                                }}>
+                                   Last Added
+                                </i> : null }
                             </div>
                         </div>
                         {doc.shared ?
@@ -200,9 +207,10 @@ function CommunityView() {
     const showLinks = () => {
         let linksDisplay = [];
         {
-            links && links.slice(startOffsetLinks, startOffsetLinks + 4).map((link) => {
+            links && links.slice(startOffsetLinks, startOffsetLinks + 4).map((link, i) => {
                 linksDisplay.push(
-                    <div className={`col-2 d-flex justify-content-center mb-5 position-relative ${classes.greyHover}`}>
+                    <div className={`col-2 d-flex justify-content-center mb-5 position-relative ${classes.greyHover}`}
+                         style={(startOffsetLinks + i  + 1 === links.length) && link.shared ? {backgroundColor: 'rgba(229, 170, 10, .05)'} : {}}>
                         <div className={'row text-center'}>
                             <div className={'d-flex justify-content-center ml-auto'}>
                                 <a style={{width: '80px'}} className={'mb-2 mt-3'}
@@ -231,7 +239,13 @@ function CommunityView() {
                                         color: 'rgba(0,0,0,.55)'
                                     }}><i>{link.formattedLinkShared}</i></span>
                                 </div>
-
+                                {(startOffsetLinks + i  + 1 === links.length && link.shared) ?
+                                    <i className={'mb-3'} style={{
+                                        fontSize: '13px',
+                                        color: 'rgba(0,0,0,.55)'
+                                    }}>
+                                        Last Added
+                                    </i> : null }
                             </div>
                         </div>
                         {link.shared ?
