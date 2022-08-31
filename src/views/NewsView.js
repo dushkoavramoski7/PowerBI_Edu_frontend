@@ -15,7 +15,6 @@ function NewsView() {
     const classes = useStyles(newsViewStyle);
     const [expandDescriptionNews, setExpandDescriptionNews] = useState(false);
     const [selectedNews, setSelectedNews] = useState();
-
     const news = useSelector(state => state.news.news);
 
     useEffect(() => {

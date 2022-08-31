@@ -267,10 +267,10 @@ function CommunityView() {
     return (
         <>
             <MenuTopBar active={'Community'}/>
-            <div className={`${classes.bodyStyle} p-3`}>
-                <div className={'container'} style={{marginTop: 70, marginLeft: '84px'}}>
+            <div className={`${classes.bodyStyle} p-3 `}>
+                <div className={'container'} style={{marginTop: 70, marginRight: 'auto', marginLeft: 'auto'}}>
                     <div className={'row'}>
-                        <div className={'col-6'}>
+                        <div className={'col-6'} style={{marginLeft: '-8px'}}>
                             <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
                             <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Shared documents</span>
                         </div>
