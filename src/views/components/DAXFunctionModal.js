@@ -53,7 +53,7 @@ function DAXFunctionModal({show, closeDAXModal, daxCategory}) {
                 <div className='container'>
                     <div className='row'>
                         <div className="col text-center">
-                            <h5 className="modal-title" style={{color: 'rgba(229, 170, 10)',}}>{daxFunctions.filter((func) => func.category === daxCategory)[0]?.category}</h5>
+                            <h5 className="modal-title" style={{color: 'rgba(0,0,0, .65)',}}>{daxFunctions.filter((func) => func.category === daxCategory)[0]?.category}</h5>
                         </div>
                     </div>
                 </div>
