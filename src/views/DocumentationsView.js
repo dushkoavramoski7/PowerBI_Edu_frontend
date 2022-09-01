@@ -60,7 +60,7 @@ function DocumentationsView() {
                         </IconButton>
                     </div>
                         <div className={'row p-3'}>
-                        {documentations && documentations.filter((item) => item.service === 'PowerBI Desktop').map((item) => {
+                        {documentations && documentations.filter((item) => item.service === 'PowerBI Desktop').map((item, i) => {
                             return (
                                 <div className={'mb-3 col-4'}>
                                     <div className={'font-weight-bold w-100'}
@@ -72,7 +72,7 @@ function DocumentationsView() {
                                         <KeyboardArrowUpRoundedIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10, .8)'}}/> :
                                                 <KeyboardArrowDownRoundedIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10, .8)'}}/>}
                                         </IconButton>
-                                        {item.title}
+                                        {i+1}. {item.title}
                                     </div>
                                     {docExpand.find((doc) => doc[0] === item.id)[1] === true ?
                                         <ul style={{listStyle: 'none'}}>
@@ -105,7 +105,7 @@ function DocumentationsView() {
                         </IconButton>
                     </div>
                     <div className={'row p-3'}>
-                        {documentations && documentations.filter((item) => item.service === 'PowerBI Mobile').map((item) => {
+                        {documentations && documentations.filter((item) => item.service === 'PowerBI Mobile').map((item, i) => {
                             return (
                                 <div className={'mb-3 col-4'}>
                                     <div className={'font-weight-bold w-100'}
@@ -117,7 +117,7 @@ function DocumentationsView() {
                                                 <KeyboardArrowUpRoundedIcon fontSize={'small'} sx={{color: 'rgba(7, 144, 168)'}}/> :
                                                 <KeyboardArrowDownRoundedIcon fontSize={'small'} sx={{color: 'rgba(7, 144, 168)'}}/>}
                                         </IconButton>
-                                        {item.title}
+                                        {i+1}. {item.title}
                                     </div>
                                     {docExpand.find((doc) => doc[0] === item.id)[1] === true ?
                                         <ul style={{listStyle: 'none'}}>
@@ -153,7 +153,7 @@ function DocumentationsView() {
                         </IconButton>
                     </div>
                             <div className={'row p-3'}>
-                                {documentations && documentations.filter((item) => item.service === 'PowerBI Service').map((item) => {
+                                {documentations && documentations.filter((item) => item.service === 'PowerBI Service').map((item, i) => {
                                     return (
                                         <div className={'mb-3 col-4'}>
                                             <div className={'font-weight-bold w-100'}
@@ -165,7 +165,7 @@ function DocumentationsView() {
                                                         <KeyboardArrowUpRoundedIcon fontSize={'small'} sx={{color: 'rgba(168, 81, 10, .6)'}}/> :
                                                         <KeyboardArrowDownRoundedIcon fontSize={'small'} sx={{color: 'rgba(168, 81, 10, .6)'}}/>}
                                                 </IconButton>
-                                                {item.title}
+                                                {i+1}. {item.title}
                                             </div>
                                             {docExpand.find((doc) => doc[0] === item.id)[1] === true ?
                                                 <ul style={{listStyle: 'none'}}>
