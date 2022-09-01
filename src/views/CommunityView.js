@@ -157,8 +157,10 @@ function CommunityView() {
                                                     doc.fileName.includes("png") || doc.fileName.includes("jpg") || doc.fileName.toLowerCase().includes("jpeg") || doc.fileName.toLowerCase().includes("svg") ?
                                                         <FileIcon extension="img" type={"image"} color={'#E8E8E8'}/> :
                                                         doc.fileName.includes(".pbix") ?
-                                                            <FileIcon extension="pbix" type={"3d"}
-                                                                      color={'#E8E8E8'}/> : <FileIcon extension="file" color={'#E8E8E8'}/>}
+                                                            <FileIcon extension="pbix" type={"3d"} color={'#E8E8E8'}/>  :
+                                                            doc.contentType.includes("csv") ?
+                                                                <FileIcon extension="csv" type={"spreadsheet"} color={'#E8E8E8'} /> :
+                                                                    <FileIcon extension="file" color={'#E8E8E8'}/>}
                                 </a>
                             </div>
                             <div>
