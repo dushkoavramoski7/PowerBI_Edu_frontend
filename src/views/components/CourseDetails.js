@@ -170,11 +170,11 @@ function CourseDetails() {
                             </div>
                         </div>
                         <div className={'row p-2'}>
-                            {course.topics?.map((topic) => {
+                            {course.topics?.map((topic, i) => {
                                 return (
                                     <div className={`mb-2 ${classes.hoverMainColorBorder}`} style={{height: '60px', borderLeft: '5px solid rgba(0,0,0,.15)'}} >
-                                        <div style={{color: 'rgba(0,0,0,.55)'}} className={'justify-content-center align-self-center mt-2'}>
-                                            <span style={{fontWeight: 'bold'}}>{topic.split("---")[0]}</span>
+                                        <div style={{color: 'rgba(0,0,0,.55)', cursor: 'pointer'}} className={'justify-content-center align-self-center mt-2'}>
+                                            <span style={{fontWeight: 'bold'}}>{i+1}. {topic.split("---")[0]}</span>
                                             <br/>
                                             {topic.split("---")[1]}
                                         </div>

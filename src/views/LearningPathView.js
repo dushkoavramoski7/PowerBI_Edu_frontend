@@ -37,15 +37,19 @@ function LearningPathView() {
                             <div className={'row mt-0'}>
                                 <div className={'col-2 pt-4 d-flex justify-content-center'}>
                                     <div style={{height: '50px', width: '50px', position: 'relative'}}>
-                                        <div style={{height: '25px', width: '25px', backgroundColor: 'rgba(229, 170, 10)', borderRadius: '50%', alignSelf: 'center', margin: 'auto'}} className={'align-items-center'}></div>
-                                        <div style={{position: 'absolute', top:'-10px', right: '3%'}}>
+                                        {course.service === "PowerBI Desktop" ?
+                                            <div style={{height: '25px', width: '25px', backgroundColor: 'rgba(229, 170, 10)', borderRadius: '50%', alignSelf: 'center', margin: 'auto'}} className={'align-items-center'}></div> :
+                                            course.service === "PowerBI Mobile" ?
+                                                <div style={{height: '25px', width: '25px', backgroundColor: 'rgba(7, 144, 168)', borderRadius: '50%', alignSelf: 'center', margin: 'auto'}} className={'align-items-center'}></div> :
+                                                <div style={{height: '25px', width: '25px', backgroundColor: 'rgba(168, 81, 10, .9)', borderRadius: '50%', alignSelf: 'center', margin: 'auto'}} className={'align-items-center'}></div> }                                        <div style={{position: 'absolute', top:'-10px', right: '3%'}}>
                                             <TurnedInNotRoundedIcon fontSize={'small'} sx={{color: 'rgba(0,0,0,.65)', fontSize: '25px'}}/>
                                         </div>
                                     </div>
                                 </div>
                                 <div className={'col-10 pt-4'} style={{paddingLeft: '0px'}}>
                                              <span style={{fontSize: '18px', fontFamily: "system-ui", color: 'rgba(0,0,0,.8)', textAlign: 'center', cursor: 'pointer'}}>
-                                                {course.name}
+                                                {course.name} <br/>
+                                                 <i style={{fontSize: '14px'}}>{course.service}</i>
                                              </span>
                                 </div>
                             </div>
@@ -107,8 +111,12 @@ function LearningPathView() {
                             <div className={'row mt-0'}>
                                 <div className={'col-2 pt-4 d-flex justify-content-center'}>
                                     <div style={{height: '50px', width: '50px', position: 'relative'}}>
-                                        <div style={{height: '25px', width: '25px', backgroundColor: 'rgba(229, 170, 10)', borderRadius: '50%', alignSelf: 'center', margin: 'auto'}} className={'align-items-center'}></div>
-                                        <div style={{position: 'absolute', top:'-10px', right: '3%'}}>
+                                        {course.service === "PowerBI Desktop" ?
+                                        <div style={{height: '25px', width: '25px', backgroundColor: 'rgba(229, 170, 10)', borderRadius: '50%', alignSelf: 'center', margin: 'auto'}} className={'align-items-center'}></div> :
+                                            course.service === "PowerBI Mobile" ?
+                                                <div style={{height: '25px', width: '25px', backgroundColor: 'rgba(7, 144, 168)', borderRadius: '50%', alignSelf: 'center', margin: 'auto'}} className={'align-items-center'}></div> :
+                                                    <div style={{height: '25px', width: '25px', backgroundColor: 'rgba(168, 81, 10, .9)', borderRadius: '50%', alignSelf: 'center', margin: 'auto'}} className={'align-items-center'}></div> }
+                                            <div style={{position: 'absolute', top:'-10px', right: '3%'}}>
                                             <TurnedInNotRoundedIcon fontSize={'small'} sx={{color: 'rgba(0,0,0,.65)', fontSize: '25px'}}/>
                                         </div>
                                     </div>
@@ -116,6 +124,8 @@ function LearningPathView() {
                                 <div className={'col-10 pt-4'} style={{paddingLeft: '0px'}}>
                                              <span style={{fontSize: '18px', fontFamily: "system-ui", color: 'rgba(0,0,0,.8)', textAlign: 'center', cursor: 'pointer'}}>
                                                 {course.name}
+                                                 <br/>
+                                                 <i style={{fontSize: '14px'}}>{course.service}</i>
                                              </span>
                                 </div>
                             </div>
