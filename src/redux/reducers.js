@@ -5,6 +5,7 @@ import documentationsReducer from "./reducer/documentationsReducer";
 import DAXReducer from "./reducer/DAXReducer";
 import communityReducer from "./reducer/communityReducer";
 import influencersReducer from "./reducer/influencersReducer";
+import coursesReducer from "./reducer/coursesReducer";
 
 
 const rootReducer = combineReducers({
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     documentations: documentationsReducer,
     dax: DAXReducer,
     community: communityReducer,
-    influencer: influencersReducer
+    influencer: influencersReducer,
+    course: coursesReducer
 })
 
 export const store = createStore(rootReducer, applyMiddleware(thunk));

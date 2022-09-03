@@ -67,5 +67,13 @@ export const theme = createTheme({
             lineHeight: '1.66',
             letterSpacing: '0.03333em'
         },
+        border: {
+            border: '1px solid #F0F0F0'
+        },
+        hoverMainColorBorder: {
+            "&:hover": {
+               backgroundColor: 'rgba(0,0,0,.016)'
+            },
+        }
     }
 })

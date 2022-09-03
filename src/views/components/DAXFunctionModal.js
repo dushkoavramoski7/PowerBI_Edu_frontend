@@ -68,7 +68,7 @@ function DAXFunctionModal({show, closeDAXModal, daxCategory}) {
                     {daxFunctions.filter((func) => func.category === daxCategory)[0]?.description}
                 </p>
                 <Divider textAlign="right" style={{color: 'rgba(0,0,0,.5)'}}>
-                    {!expandAll ? <span className={'m-2'}>Expand all</span>  : <span className={'m-2'}>Collapse all</span>}
+                    <span className={'m-2'} onClick={() => expandAllDAXFunc()} style={{cursor: 'pointer'}}> {!expandAll ? 'Expand all' : 'Collapse all' }</span>
                     <IconButton size={'small'} onClick={() => expandAllDAXFunc()}>
                         {!expandAll ? <><KeyboardArrowDownRoundedIcon fontSize={'small'}/> </> :
                             <> <KeyboardArrowUpRoundedIcon fontSize={'small'}/> </> }
@@ -84,7 +84,8 @@ function DAXFunctionModal({show, closeDAXModal, daxCategory}) {
                                             <KeyboardArrowUpRoundedIcon fontSize={'small'}/> :
                                             <KeyboardArrowDownRoundedIcon fontSize={'small'}/>}
                                     </IconButton>
-                                   <b style={{color: 'rgba(0,0,0,.5)'}}> {func.syntax} </b>
+                                   <b style={{color: 'rgba(0,0,0,.5)', fontSize: '15px', textAlign: 'center', cursor: 'pointer'}}
+                                      onClick={() => expandDAXFunc(func.id)}> {func.syntax} </b>
                                 </li>
                                 {daxFunctionExpand.find((func1) => func1[0] === func.id)[1] === true ?
                                     <div className={'p-4'} style={{marginTop: '-20px'}}>

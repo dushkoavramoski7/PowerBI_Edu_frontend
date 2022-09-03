@@ -7,6 +7,7 @@ import DocumentationsView from "../views/DocumentationsView";
 import NewsView from "../views/NewsView";
 import CommunityView from "../views/CommunityView";
 import InfluencersView from "../views/InfluencersView";
+import CourseDetails from "../views/components/CourseDetails";
 
 export const routesConfig = [
     {
@@ -57,6 +58,12 @@ export const routesConfig = [
         title: 'InfluencersView',
         exact: true
     },
+    {
+        component: CourseDetails,
+        path: '/courses/:id',
+        title: 'CourseDetailsView',
+        exact: true
+    }
 ]
 
 const AllRoutes = () => {
