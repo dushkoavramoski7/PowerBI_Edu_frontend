@@ -1,8 +1,9 @@
 import Modal from "react-bootstrap/Modal";
 import {IconButton} from "@material-ui/core";
 import CloseIcon from "@mui/icons-material/Close";
+import {FormikProvider} from "formik";
 
-function ModalExamSubmit({show, closeModal}) {
+function ModalExamSubmit({show, closeModal, formik}) {
     return (
         <>
             <Modal
@@ -17,7 +18,7 @@ function ModalExamSubmit({show, closeModal}) {
                         <div className='row'>
                             <div className="col text-center">
                                 <h5 className="modal-title" style={{color: 'rgba(0,0,0, .65)',}}>Are you sure?</h5>
-                                <span className="font-weight-bold text-warning">PROCEED TO SUBMITTING EXAM</span>
+                                <span className="font-weight-bold text-success">PROCEED TO SUBMITTING EXAM</span>
                             </div>
                         </div>
                     </div>
@@ -34,8 +35,12 @@ function ModalExamSubmit({show, closeModal}) {
                     </p>
                 </Modal.Body>
                 <Modal.Footer>
-                    <button type="button" className="btn btn-white" onClick={closeModal}>Close</button>
-                    <button type="submit" className="btn btn-warning text-white"  style={{backgroundColor: 'rgba(229, 170, 10)'}}>Submit</button>
+                    <FormikProvider value={formik}>
+                        <form onSubmit={formik.handleSubmit}>
+                            <button type="button" className="btn btn-white" onClick={closeModal}>Close</button>
+                            <button type="submit" className="btn btn-success text-white">Submit</button>
+                        </form>
+                    </FormikProvider>
                 </Modal.Footer>
             </Modal>
         </>

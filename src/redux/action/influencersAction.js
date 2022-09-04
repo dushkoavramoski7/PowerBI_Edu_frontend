@@ -1,5 +1,5 @@
 import {FETCH_INFLUENCERS} from "../actionTypes";
-import axios from "../../axios/axiosInstance"
+import axios from "../../axios/axiosInstance2"
 
 export const influencersAction = {
     fetch: () => dispatch => {

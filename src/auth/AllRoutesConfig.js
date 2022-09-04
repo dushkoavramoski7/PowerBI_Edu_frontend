@@ -34,6 +34,12 @@ export const routesConfig = [
         exact: true
     },
     {
+        component: ExamView,
+        path: '/exams/result/:id',
+        title: 'ExamView',
+        exact: true
+    },
+    {
         component: DaxFunctionsView,
         path: '/DAXFunctions',
         title: 'DaxFunctionsView',

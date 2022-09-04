@@ -1,23 +1,30 @@
 import MenuTopBar from "./components/pageElements/MenuTopBar";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {examAction} from "../redux/action/examAction";
 import {useStyles} from "../factory/StyleFactory";
 import {examViewStyle} from "./style/ExamViewStyle";
-import {useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
+import ModalExamResult from "./components/ModalExamResult";
 
 function ExamView() {
     const dispatch = useDispatch();
     const exams = useSelector(state => state.exam.exams);
     const classes = useStyles(examViewStyle);
     const history = useHistory();
-
-
+    const [openResultModal, setOpenResultModal] = useState(false);
+    const [result, setResult] = useState();
+    const id = useParams();
 
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(examAction.fetchExams());
+        if(Boolean(id.id))
+        {
+            setOpenResultModal(true);
+            setResult(id.id)
+        }
     }, [])
 
 
@@ -57,8 +64,7 @@ function ExamView() {
 
                 </div>
             </div>
-
-
+            <ModalExamResult show={openResultModal} percentage={result} />
         </>
     )
 }

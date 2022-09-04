@@ -1,4 +1,4 @@
-import {FETCH_EXAM, FETCH_EXAMS} from "../actionTypes";
+import {CHANGE_ANSWER, FETCH_EXAM, FETCH_EXAMS} from "../actionTypes";
 import axios from "../../axios/axiosInstance"
 
 
@@ -20,6 +20,19 @@ export const examAction = {
             })
         })
     },
+    changeAnswer: (questionId, answer) => {
+        return {
+            type: CHANGE_ANSWER,
+            questionId: questionId,
+            answer: answer
+        }
+    },
+    submitAnswers: (answers, id, callback) => {
+        axios.post(`/courses/exam/${id}/submit`, answers)
+            .then(resp => {
+                callback(resp.data);
+        })
+    }
 
 
 }
