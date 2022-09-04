@@ -4,6 +4,8 @@ import {useEffect} from "react";
 import {FormikProvider, useFormik} from "formik";
 import {useHistory} from "react-router-dom";
 import {influencersAction} from "../redux/action/influencersAction";
+import {coursesAction} from "../redux/action/coursesAction";
+
 import {useDispatch} from "react-redux";
 import {Button, TextField} from "@mui/material";
 import {useStyles} from "../factory/StyleFactory";
@@ -32,6 +34,7 @@ function Login() {
             url: false
         })
         dispatch(influencersAction.fetch());
+        dispatch(coursesAction.fetchCourses());
     }, []);
 
     const initialValues = {

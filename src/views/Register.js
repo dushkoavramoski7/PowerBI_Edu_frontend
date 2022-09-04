@@ -6,6 +6,9 @@ import {Button, TextField} from "@mui/material";
 import {useStyles} from "../factory/StyleFactory";
 import {uploadCommunityModalStyle} from "./components/style/UploadCommunityModalStyle";
 import StartIcon from "@mui/icons-material/Start";
+import {useEffect} from "react";
+import {influencersAction} from "../redux/action/influencersAction";
+import {coursesAction} from "../redux/action/coursesAction";
 
 
 const validationSchema = yup.object({
@@ -21,7 +24,10 @@ function Register() {
     const dispatch = useDispatch();
     const classes = useStyles(uploadCommunityModalStyle);
 
-
+    useEffect(() => {
+        dispatch(influencersAction.fetch());
+        dispatch(coursesAction.fetchCourses());
+    }, []);
     const initialValues = {
         name: '' ,
         surname: '' ,
