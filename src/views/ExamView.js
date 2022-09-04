@@ -7,7 +7,8 @@ import {examViewStyle} from "./style/ExamViewStyle";
 import {useHistory, useParams} from "react-router-dom";
 import StickyNote2OutlinedIcon from '@mui/icons-material/StickyNote2Outlined';
 import ModalExamResult from "./components/ModalExamResult";
-
+import {Button} from "@mui/material";
+import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 function ExamView() {
     const dispatch = useDispatch();
     const exams = useSelector(state => state.exam.exams);
@@ -33,8 +34,28 @@ function ExamView() {
             <MenuTopBar active={'Exam'}/>
             <div className={`${classes.bodyStyle} p-3`}>
                 <div className={'container'} style={{marginTop: 70}}>
-                    <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
-                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Desktop</span>
+                    <div className={'row'}>
+                        <div className={'col-6'} style={{marginLeft: '-8px'}}>
+                            <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
+                            <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Desktop Exams</span>
+                        </div>
+                        <div className={'col-6 d-flex justify-content-end'}>
+
+                            <Button variant="outlined"
+                                    sx={{color: 'rgba(229, 170, 10)',
+                                        borderColor: 'rgba(229, 170, 10)',
+                                        '&:hover': {
+                                            backgroundColor: 'rgba(229, 170, 10,.035)',
+                                            borderColor: 'rgba(229, 170, 10)',
+                                            boxShadow: 'none',
+                                        }}}
+                                    endIcon={<VerifiedOutlinedIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10)', }} />}
+                                    onClick={() => history.push("/certificates")}
+                                    >
+                                Certificates
+                            </Button>
+                        </div>
+                    </div>
                     {exams && exams.map((exam) => {
                         return (
                             <div style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}} className={`col-3 ${classes.greyHover}`}

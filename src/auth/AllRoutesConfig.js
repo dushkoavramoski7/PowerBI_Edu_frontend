@@ -15,6 +15,7 @@ import ExamDetails from "../views/components/ExamDetails";
 import TakingExam from "../views/TakingExam";
 import Login from "../views/Login";
 import Register from "../views/Register";
+import Certificate from "../views/Certificate";
 
 export const routesConfig = [
     {
@@ -117,6 +118,12 @@ export const routesConfig = [
         component: Register,
         path: '/register',
         title: 'Register',
+        exact: true
+    },
+    {
+        component: Certificate,
+        path: '/certificates',
+        title: 'Certificate',
         exact: true
     }
 ]
