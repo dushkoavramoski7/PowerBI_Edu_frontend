@@ -8,6 +8,7 @@ import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import {Chip} from "@mui/material";
 import { useHistory} from "react-router-dom";
+import {influencersAction} from "../redux/action/influencersAction";
 
 function CoursesView() {
     const dispatch = useDispatch();
@@ -18,6 +19,7 @@ function CoursesView() {
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(coursesAction.fetchCourses());
+        dispatch(influencersAction.fetch());
     }, []);
     return (
         <>

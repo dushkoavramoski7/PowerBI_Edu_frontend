@@ -13,6 +13,8 @@ import LearnView3 from "../views/LearnView3";
 import LearnView2 from "../views/LearnView2";
 import ExamDetails from "../views/components/ExamDetails";
 import TakingExam from "../views/TakingExam";
+import Login from "../views/Login";
+import Register from "../views/Register";
 
 export const routesConfig = [
     {
@@ -103,6 +105,18 @@ export const routesConfig = [
         component: TakingExam,
         path: '/exams/start/:id',
         title: 'TakingExam',
+        exact: true
+    },
+    {
+        component: Login,
+        path: '/login',
+        title: 'Login',
+        exact: true
+    },
+    {
+        component: Register,
+        path: '/register',
+        title: 'Register',
         exact: true
     }
 ]
