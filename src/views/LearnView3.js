@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {useHistory, useParams} from "react-router-dom";
 import {useEffect} from "react";
 import {coursesAction} from "../redux/action/coursesAction";
+import EastIcon from "@mui/icons-material/East";
 
 function LearnView3() {
     const course = useSelector(state => state.course.course);
@@ -27,7 +28,14 @@ function LearnView3() {
                         <WestIcon fontSize={'small'}  onClick={() => history.push("/courses/learn2/" + course.id)}/>
                     </IconButton>
                     <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
-                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)'}}>Learning Page - 1</span>
+                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)'}}>Learning Page - 2</span>
+                </div>
+                <div className={'mb-2 col-6 ml-5 d-flex justify-content-end'}>
+                    <IconButton size={'small'} className={'mb-1'} style={{marginRight: '7px'}}>
+                        <EastIcon fontSize={'small'}  onClick={() => history.push("/courses")}/>
+                    </IconButton>
+                    <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7, height: '22px', marginTop: '4px'}}/>
+                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)' , marginRight: 7, marginTop: '3px'}}>Courses</span>
                 </div>
             </div>
             <div className={`container p-3`}  style={{backgroundColor: 'rgba(255,255,255)' , height: '700px'}}>
