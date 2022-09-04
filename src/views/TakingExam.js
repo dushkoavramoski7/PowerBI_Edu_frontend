@@ -74,7 +74,10 @@ function TakingExam() {
                 </div>
                 <div className={`container p-3`} style={{backgroundColor: 'rgba(255,255,255)' , height: '1800px'}}>
                     <div className={`row`}>
-                        <div className={'col-10'}></div>
+                        <div className={'col-2'}></div>
+                        <div className={'col-8'}>
+                            <p className={'text-center'} style={{color: 'rgba(229, 170, 10)', fontSize: '20px'}}>{exam.name} - Exam (1/1)</p>
+                        </div>
                         <div className={'col-2 d-flex justify-content-end'}>
                             <Countdown
                                 date={Date.now() + 1800000}
