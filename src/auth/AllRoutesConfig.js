@@ -8,6 +8,9 @@ import NewsView from "../views/NewsView";
 import CommunityView from "../views/CommunityView";
 import InfluencersView from "../views/InfluencersView";
 import CourseDetails from "../views/components/CourseDetails";
+import LearnView1 from "../views/LearnView1";
+import LearnView3 from "../views/LearnView3";
+import LearnView2 from "../views/LearnView2";
 
 export const routesConfig = [
     {
@@ -62,6 +65,24 @@ export const routesConfig = [
         component: CourseDetails,
         path: '/courses/:id',
         title: 'CourseDetailsView',
+        exact: true
+    },
+    {
+        component: LearnView1,
+        path: '/courses/learn1/:id',
+        title: 'LearnView1',
+        exact: true
+    },
+    {
+        component: LearnView2,
+        path: '/courses/learn2/:id',
+        title: 'LearnView2',
+        exact: true
+    },
+    {
+        component: LearnView3,
+        path: '/courses/learn3/:id',
+        title: 'LearnView3',
         exact: true
     }
 ]

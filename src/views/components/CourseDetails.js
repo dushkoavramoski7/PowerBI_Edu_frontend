@@ -27,10 +27,10 @@ function CourseDetails() {
         <div className={'container p-5 mt-3'}>
             <div className={'mb-2'}>
                 <IconButton size={'small'} className={'mb-1'} style={{marginRight: '10px'}}>
-                    <WestIcon fontSize={'small'}  onClick={() => history.goBack()}/>
+                    <WestIcon fontSize={'small'}  onClick={() => history.push("/courses")}/>
                 </IconButton>
                 <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
-                <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)'}}>{course.service}</span>
+                <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)'}}>Courses</span>
             </div>
 
             <div className={`container p-3`} style={{backgroundColor: 'rgba(255,255,255)' , height: '700px'}}>
@@ -153,7 +153,8 @@ function CourseDetails() {
                                                 borderColor: 'rgba(229, 170, 10)',
                                                 boxShadow: 'none',
                                             }}}
-                                        endIcon={<StartIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10)', }} />}>
+                                        endIcon={<StartIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10)', }} />}
+                                        onClick={() => history.push("/courses/learn1/" + course.id)}>
                                     Start Learning
                                 </Button>
                             </div>
@@ -172,9 +173,10 @@ function CourseDetails() {
                         <div className={'row p-2'}>
                             {course.topics?.map((topic, i) => {
                                 return (
-                                    <div className={`mb-2 ${classes.hoverMainColorBorder}`} style={{height: '60px', borderLeft: '5px solid rgba(0,0,0,.15)'}} >
+                                    <div className={`mb-2 ${classes.hoverMainColorBorder}`} style={{height: '60px', borderLeft: '5px solid rgba(0,0,0,.15)'}}
+                                         onClick={() => history.push("/courses/learn1/" + course.id)}>
                                         <div style={{color: 'rgba(0,0,0,.55)', cursor: 'pointer'}} className={'justify-content-center align-self-center mt-2'}>
-                                            <span style={{fontWeight: 'bold'}}>{i+1}. {topic.split("---")[0]}</span>
+                                            <span style={{fontWeight: 'bold'}} onClick={() => history.push("/courses/learn1/" + course.id)}>{i+1}. {topic.split("---")[0]}</span>
                                             <br/>
                                             {topic.split("---")[1]}
                                         </div>
