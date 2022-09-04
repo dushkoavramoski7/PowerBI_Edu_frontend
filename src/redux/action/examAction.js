@@ -5,7 +5,7 @@ import axios from "../../axios/axiosInstance"
 export const examAction = {
 
     fetchExams: () => dispatch => {
-        axios.get("/exams123").then(resp => {
+        axios.get("/courses/exams").then(resp => {
             dispatch({
                 type: FETCH_EXAMS,
                 exams: resp.data
@@ -13,7 +13,7 @@ export const examAction = {
         })
     },
     fetchExam: (id) => dispatch => {
-        axios.get(`/exams123/${id}`).then(resp => {
+        axios.get(`/courses/exams/${id}`).then(resp => {
             dispatch({
                 type: FETCH_EXAM,
                 exam: resp.data
