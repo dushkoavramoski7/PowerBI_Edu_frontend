@@ -41,16 +41,16 @@ export const theme = createTheme({
             "& label.Mui-focused": {
                 color: 'rgba(229, 170, 10)'
             },
-            // "&:hover label": {
-            //     color: 'rgb(26,179,148)',
-            // },
+            "&:hover label": {
+                color: 'rgba(229, 170, 10)',
+            },
             "& .MuiOutlinedInput-root": {
                 '& fieldset': {
                     border: '1px solid #E8E8E8',
                 },
-                // "&:hover fieldset": {
-                //     borderColor: `rgb(26,179,148)`,
-                // },
+                "&:hover fieldset": {
+                    borderColor: `rgba(229, 170, 10)`,
+                },
                 "&.Mui-focused fieldset": {
                     border: '1px solid rgba(229, 170, 10)',
                 },

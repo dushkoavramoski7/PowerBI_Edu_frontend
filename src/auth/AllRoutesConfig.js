@@ -115,6 +115,12 @@ export const routesConfig = [
         exact: true
     },
     {
+        component: Login,
+        path: '/login/:success',
+        title: 'Login',
+        exact: true
+    },
+    {
         component: Register,
         path: '/register',
         title: 'Register',

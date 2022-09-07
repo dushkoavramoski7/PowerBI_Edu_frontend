@@ -1,16 +1,17 @@
-import logo from '../img/logo.png';
+import logo from '../img/yeloow-heaer.jpg';
 import * as yup from "yup";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {FormikProvider, useFormik} from "formik";
-import {useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import {influencersAction} from "../redux/action/influencersAction";
 import {coursesAction} from "../redux/action/coursesAction";
 
 import {useDispatch} from "react-redux";
-import {Button, TextField} from "@mui/material";
+import {Button, Checkbox, TextField} from "@mui/material";
 import {useStyles} from "../factory/StyleFactory";
 import {uploadCommunityModalStyle} from "./components/style/UploadCommunityModalStyle";
 import StartIcon from "@mui/icons-material/Start";
+import SnackbarAlert from "./components/SnackbarAlert";
 
 const validationSchema = yup.object({
     username: yup.string("Username is required.").required("Username is required."),
@@ -20,6 +21,9 @@ function Login() {
     const history = useHistory();
     const dispatch = useDispatch();
     const classes = useStyles(uploadCommunityModalStyle);
+    const success = useParams();
+    const [snackbarStatus, setSnackbarStatus] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
 
     useEffect(() => {
         formik.setValues({
@@ -35,6 +39,14 @@ function Login() {
         })
         dispatch(influencersAction.fetch());
         dispatch(coursesAction.fetchCourses());
+        if(Boolean(success.success)) {
+            setSnackbarStatus(true)
+            setSnackbarMessage({
+                message: 'User created!',
+                subMessage: 'Use same credentials to login.',
+                status: 'success',
+            })
+        }
     }, []);
 
     const initialValues = {
@@ -55,22 +67,21 @@ function Login() {
     return (
         <>
             <div className={'container p-5 mt-3 d-flex'}>
-                <div className={`container p-3 m-auto`} style={{backgroundColor: 'rgba(255,255,255)' , height: '500px'}}>
-                    <div className={`row`} >
-                        <div className={'col-5 mt-5'}>
-                            <img src={logo} style={{height: 350, width: 400}} className="d-inline-block align-top p-2" alt=""/>
+                    <div className={`row bg-white position-relative`} style={{height: '600px', width: '1300px'}}>
+                        <div className={'col-6'}>
+                            <img src={logo} alt="" style={{height: '600px', width: '600px', marginLeft: '-13px'}}/>
                         </div>
                         <div className={'col-6 mt-5'}>
-                            <h3 style={{color: 'rgba(0,0,0,.55)'}}>Welcome to <b style={{color: 'rgba(229, 170, 10)'}}>PowerBI - Edu</b></h3>
-                            <FormikProvider value={formik}>
+                            <p style={{color: 'rgba(0,0,0,.55)', fontSize: '34px', marginBottom:'-5px'}}>Welcome to <b style={{color: 'rgba(234, 179, 2)'}}>PowerBI - Edu</b></p>
+                            <i style={{color: 'rgba(0,0,0,.35)'}}>Interactive e-learning web application for data visualization software, <i style={{color: 'rgba(234, 179, 2)'}}>PowerBI</i> </i>
+                            <FormikProvider value={formik} >
                                 <form onSubmit={formik.handleSubmit}>
-                                    <div>
+                                    <div style={{marginTop: '20px'}}>
                                         <TextField id="username"
                                                    name="username"
                                                    className={classes.inputField}
                                                    label="Username *"
                                                    value={formik.values.username}
-                                                   onBlur={formik.handleBlur}
                                                    onChange={formik.handleChange}
                                                    error={formik.touched.username && Boolean(formik.errors.username)}
                                                    fullWidth={true}
@@ -85,7 +96,6 @@ function Login() {
                                                    className={classes.inputField}
                                                    label="Password *"
                                                    value={formik.values.password}
-                                                   onBlur={formik.handleBlur}
                                                    onChange={formik.handleChange}
                                                    error={formik.touched.password && Boolean(formik.errors.password)}
                                                    fullWidth={true}
@@ -96,26 +106,39 @@ function Login() {
                                             <span className={`${classes.errorText}`}>{formik.errors.password}</span>): null }
                                     </div>
                                     <div className={'row'}>
-                                        <div className={'col-8 mt-4'}>
-                                            <p> Don't have an account? <a style={{color: 'rgba(229, 170, 10)', cursor: 'pointer'}} onClick={() => history.push("/register")}>Create one!</a></p>
+                                        <div className={'col-6'}>
+                                            <Checkbox size="medium"
 
+                                                      sx={{
+                                                          marginTop: '-5px',
+                                                          marginLeft: '-5px',
+                                                          color: '#939393',
+                                                          '&.Mui-checked': {
+                                                              color: 'rgba(234, 179, 2)',
+                                                          },
+                                                      }}/>
+                                            <span className={'mt-1'}>Remember me</span>
                                         </div>
-                                        <div className={'col-4 d-flex justify-content-end mt-3'}>
-                                            <Button variant="outlined"
-                                                    sx={{color: 'rgba(229, 170, 10)',
-                                                        borderColor: 'rgba(229, 170, 10)',
-                                                        marginTop: '8px',
-                                                        '&:hover': {
-                                                            backgroundColor: 'rgba(229, 170, 10,.035)',
-                                                            borderColor: 'rgba(229, 170, 10)',
-                                                            boxShadow: 'none',
-                                                        }}}
-                                                    endIcon={<StartIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10)', }} />}
-                                                    type={'submit'}>
-                                                Log in
-                                            </Button>
+                                        <div className={'col-6 mt-2'} style={{marginRight: '-15px'}}>
+                                            <p> Don't have an account? <a style={{color: 'rgba(234, 179, 2)', cursor: 'pointer', fontWeight: 'bold'}} onClick={() => history.push("/register")}>Create one!</a></p>
                                         </div>
-
+                                    </div>
+                                    <div className={'row'} style={{marginRight:'2px', marginTop:'42px'}}>
+                                        <Button sx={{borderColor: 'rgba(234, 179, 2)',
+                                            backgroundColor: 'rgba(234, 179, 2)',
+                                            marginTop: '8px',
+                                            fontWeight: 'bold',
+                                            color: 'white',
+                                            height: '50px',
+                                            '&:hover': {
+                                                backgroundColor: 'rgba(234, 179, 2, .95)',
+                                                border: ' 10px solid rgba(234, 179, 2)',
+                                                boxShadow: 'none',
+                                            }}}
+                                                fullWidth={true}
+                                                type={'submit'}>
+                                            Log in
+                                        </Button>
                                     </div>
                                 </form>
                             </FormikProvider>
@@ -123,7 +146,9 @@ function Login() {
 
                         </div>
                     </div>
-                </div>
+                <SnackbarAlert snackbarStatus={snackbarStatus}
+                               closeSnackbar={() => setSnackbarStatus(false)}
+                               snackbarMessage={snackbarMessage}/>
             </div>
         </>
     )

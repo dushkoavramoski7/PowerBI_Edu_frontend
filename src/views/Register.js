@@ -5,10 +5,10 @@ import {useDispatch} from "react-redux";
 import {Button, TextField} from "@mui/material";
 import {useStyles} from "../factory/StyleFactory";
 import {uploadCommunityModalStyle} from "./components/style/UploadCommunityModalStyle";
-import StartIcon from "@mui/icons-material/Start";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {influencersAction} from "../redux/action/influencersAction";
 import {coursesAction} from "../redux/action/coursesAction";
+import SnackbarAlert from "./components/SnackbarAlert";
 
 
 const validationSchema = yup.object({
@@ -23,6 +23,8 @@ function Register() {
     const history = useHistory();
     const dispatch = useDispatch();
     const classes = useStyles(uploadCommunityModalStyle);
+
+
 
     useEffect(() => {
         dispatch(influencersAction.fetch());
@@ -42,7 +44,7 @@ function Register() {
         validationSchema,
         enableReinitialize: true,
         onSubmit: values => {
-            history.push("/login");
+            history.push("/login/success");
         }
     });
 
@@ -56,7 +58,7 @@ function Register() {
                     </div>
 
                     <div className={'col-10'}>
-                        <h3 style={{color: 'rgba(0,0,0,.55)'}}>Create account for <b style={{color: 'rgba(229, 170, 10)'}}>PowerBI - Edu</b></h3>
+                        <p style={{color: 'rgba(0,0,0,.55)', fontSize: '34px', marginBottom:'-5px'}}>Create account for <b style={{color: 'rgba(234, 179, 2)'}}>PowerBI - Edu</b></p>
                         <FormikProvider value={formik}>
                             <form onSubmit={formik.handleSubmit}>
                                 <div className={'row'}>
@@ -67,7 +69,6 @@ function Register() {
                                                        className={classes.inputField}
                                                        label="Name *"
                                                        value={formik.values.name}
-                                                       onBlur={formik.handleBlur}
                                                        onChange={formik.handleChange}
                                                        error={formik.touched.name && Boolean(formik.errors.name)}
                                                        fullWidth={true}
@@ -84,7 +85,6 @@ function Register() {
                                                        className={classes.inputField}
                                                        label="Surname *"
                                                        value={formik.values.surname}
-                                                       onBlur={formik.handleBlur}
                                                        onChange={formik.handleChange}
                                                        error={formik.touched.surname && Boolean(formik.errors.surname)}
                                                        fullWidth={true}
@@ -104,7 +104,6 @@ function Register() {
                                                    className={classes.inputField}
                                                    label="Username *"
                                                    value={formik.values.username}
-                                                   onBlur={formik.handleBlur}
                                                    onChange={formik.handleChange}
                                                    error={formik.touched.username && Boolean(formik.errors.username)}
                                                    fullWidth={true}
@@ -119,7 +118,6 @@ function Register() {
                                                    className={classes.inputField}
                                                    label="Email *"
                                                    value={formik.values.email}
-                                                   onBlur={formik.handleBlur}
                                                    onChange={formik.handleChange}
                                                    error={formik.touched.email && Boolean(formik.errors.email)}
                                                    fullWidth={true}
@@ -136,7 +134,6 @@ function Register() {
                                                className={classes.inputField}
                                                label="Password *"
                                                value={formik.values.password}
-                                               onBlur={formik.handleBlur}
                                                onChange={formik.handleChange}
                                                error={formik.touched.password && Boolean(formik.errors.password)}
                                                fullWidth={true}
@@ -153,9 +150,9 @@ function Register() {
                                                className={classes.inputField}
                                                label="Repeat Password *"
                                                value={formik.values.repeatPassword}
-                                               onBlur={formik.handleBlur}
                                                onChange={formik.handleChange}
                                                error={formik.touched.repeatPassword && Boolean(formik.errors.repeatPassword)}
+                                               onBlur={formik.handleBlur}
                                                fullWidth={true}
                                                margin={"normal"}
                                                placeholder="Please enter password..."/>
@@ -166,39 +163,23 @@ function Register() {
 
 
                                 </div>
-                                <div className={'row'}>
-                                    <div className={'col-6 d-flex justify-content-start mt-3'}>
-                                        <Button variant="outlined"
-                                                sx={{color: 'rgba(229, 170, 10)',
-                                                    borderColor: 'rgba(229, 170, 10)',
-                                                    marginTop: '8px',
-                                                    '&:hover': {
-                                                        backgroundColor: 'rgba(229, 170, 10,.035)',
-                                                        borderColor: 'rgba(229, 170, 10)',
-                                                        boxShadow: 'none',
-                                                    }}}
-                                                endIcon={<StartIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10)'}} />}
-                                                onClick={() => history.push("/login")}
-                                        >
-                                            Login
-                                        </Button>
-                                    </div>
-                                    <div className={'col-6 d-flex justify-content-end mt-3'}>
-                                        <Button variant="outlined"
-                                                sx={{color: 'rgba(229, 170, 10)',
-                                                    borderColor: 'rgba(229, 170, 10)',
-                                                    marginTop: '8px',
-                                                    '&:hover': {
-                                                        backgroundColor: 'rgba(229, 170, 10,.035)',
-                                                        borderColor: 'rgba(229, 170, 10)',
-                                                        boxShadow: 'none',
-                                                    }}}
-                                                endIcon={<StartIcon fontSize={'small'} sx={{color: 'rgba(229, 170, 10)'}} />}
+                                    <div className={'row'} style={{marginRight:'5px', marginTop:'42px', marginLeft:'4px'}}>
+                                        <Button sx={{borderColor: 'rgba(234, 179, 2)',
+                                            backgroundColor: 'rgba(234, 179, 2)',
+                                            marginTop: '8px',
+                                            fontWeight: 'bold',
+                                            color: 'white',
+                                            height: '50px',
+                                            '&:hover': {
+                                                backgroundColor: 'rgba(234, 179, 2, .95)',
+                                                border: ' 10px solid rgba(234, 179, 2)',
+                                                boxShadow: 'none',
+                                            }}}
+                                                fullWidth={true}
                                                 type={'submit'}>
-                                            Register
+                                            Rregister
                                         </Button>
                                     </div>
-                                </div>
 
                             </form>
                         </FormikProvider>
@@ -209,8 +190,8 @@ function Register() {
                     </div>
                 </div>
             </div>
-        </div>
 
+        </div>
     )
 }
 export default Register;
