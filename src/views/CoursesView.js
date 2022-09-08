@@ -2,24 +2,37 @@ import {coursesViewStyle} from "./style/CoursesViewStyle";
 import {useStyles} from "../factory/StyleFactory";
 import MenuTopBar from "./components/pageElements/MenuTopBar";
 import {useDispatch, useSelector} from "react-redux";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import {coursesAction} from "../redux/action/coursesAction";
 import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
 import {Chip} from "@mui/material";
-import { useHistory} from "react-router-dom";
+import {useHistory, useParams} from "react-router-dom";
 import {influencersAction} from "../redux/action/influencersAction";
+import SnackbarAlert from "./components/SnackbarAlert";
 
 function CoursesView() {
     const dispatch = useDispatch();
     const classes = useStyles(coursesViewStyle);
     const courses = useSelector(state => state.course.courses);
     const history = useHistory();
+    const user = useParams();
+    const [snackbarStatus, setSnackbarStatus] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
 
     useEffect(() => {
         window.scrollTo(0, 0);
         dispatch(coursesAction.fetchCourses());
         dispatch(influencersAction.fetch());
+        if(Boolean(user.user)) {
+            setSnackbarStatus(true)
+            setSnackbarMessage({
+                message: 'Welcome!',
+                subMessage: 'Have a fun time learning, ' + user.user + '!',
+                status: 'success',
+            })
+
+        }
     }, []);
     return (
         <>
@@ -215,9 +228,10 @@ function CoursesView() {
                         </div>
                     </div>
                 </div>
-
             </div>
-
+            <SnackbarAlert snackbarStatus={snackbarStatus}
+                           closeSnackbar={() => setSnackbarStatus(false)}
+                           snackbarMessage={snackbarMessage}/>
 
         </>
     )

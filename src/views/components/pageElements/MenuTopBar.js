@@ -2,13 +2,27 @@ import logo from '../../../img/logo.png';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import PersonOutlineRoundedIcon from '@mui/icons-material/PersonOutlineRounded';
-import {IconButton} from "@mui/material";
+import {IconButton, Tooltip, Zoom} from "@mui/material";
 import {useStyles} from "../../../factory/StyleFactory";
 import {menuTopBarStyle} from "./style/MenuTopBarStyle";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import {useState} from "react";
 
 function MenuTopBar({active}) {
     const classes = useStyles(menuTopBarStyle);
+    const [anchorEl, setAnchorEl] = useState();
+    const history = useHistory();
+    const open = Boolean(anchorEl);
+    const handleClick = (e) => {
+        setAnchorEl(e.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
     
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-white p-2 position-fixed w-100" style={{zIndex: '900'}}>
@@ -74,15 +88,39 @@ function MenuTopBar({active}) {
             </div>
             <div className="d-flex justify-content-end" id="navbarText">
                 <div className="d-flex justify-content-around">
-                    <IconButton size={'medium'}>
-                        <NotificationsRoundedIcon color={'disabled'} fontSize={'medium'}/>
-                    </IconButton>
-                    <IconButton size={'medium'}>
-                        <InfoRoundedIcon color={'disabled'} fontSize={'medium'}/>
-                    </IconButton>
-                    <IconButton size={'medium'}>
-                        <PersonOutlineRoundedIcon color={'disabled'} fontSize={'medium'}/>
-                    </IconButton>
+                    <Tooltip TransitionComponent={Zoom} title="Here goes notifications about new updates" arrow>
+                        <IconButton size={'medium'}>
+                            <NotificationsRoundedIcon color={'disabled'} fontSize={'medium'}/>
+                        </IconButton>
+                    </Tooltip>
+                    <Tooltip TransitionComponent={Zoom} title="Here goes info about all pages" arrow>
+                        <IconButton size={'medium'}>
+                            <InfoRoundedIcon color={'disabled'} fontSize={'medium'}/>
+                        </IconButton>
+                    </Tooltip>
+
+                     <IconButton size={'medium'}
+                                 id="basic-button"
+                                 aria-controls={open ? 'basic-menu' : undefined}
+                                 aria-haspopup="true"
+                                 aria-expanded={open ? 'true' : undefined}
+                                 onClick={handleClick}>
+                         <PersonOutlineRoundedIcon color={'disabled'} fontSize={'medium'}/>
+                     </IconButton>
+                    <Menu
+                        id="basic-menu"
+                        anchorEl={anchorEl}
+                        open={open}
+                        onClose={handleClose}
+                        MenuListProps={{
+                            'aria-labelledby': 'basic-button',
+                        }}
+                    >
+                        <MenuItem onClick={() => history.push("/login")}>Logout</MenuItem>
+                        <MenuItem onClick={handleClose} disabled={true}>Profile</MenuItem>
+                        <MenuItem onClick={handleClose} disabled={true}>My account</MenuItem>
+
+                    </Menu>
                 </div>
             </div>
         </nav>

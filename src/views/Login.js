@@ -60,7 +60,7 @@ function Login() {
         validationSchema,
         enableReinitialize: true,
         onSubmit: values => {
-           history.push("/courses");
+           history.push("/courses/logged/" + values.username);
         }
     });
 

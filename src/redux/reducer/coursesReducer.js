@@ -1,9 +1,10 @@
-import {FETCH_COURSE, FETCH_COURSES, FETCH_LEARNING_PATHS} from "../actionTypes";
+import {FETCH_COURSE, FETCH_COURSES, FETCH_LEARNING_PATHS, USER_LOGIN} from "../actionTypes";
 
 const initialState = {
     courses: [],
     course: {},
-    learningPaths: []
+    learningPaths: [],
+    user: ''
 }
 
 const reducer = (state = initialState, action) => {
@@ -24,6 +25,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 learningPaths: action.learningPaths
+            }
+        }
+        case USER_LOGIN: {
+            return {
+                ...state,
+                user: action.user
             }
         }
         default:

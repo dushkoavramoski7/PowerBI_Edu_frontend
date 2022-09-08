@@ -1,4 +1,4 @@
-import {FETCH_COURSES, FETCH_COURSE, FETCH_LEARNING_PATHS} from "../actionTypes";
+import {FETCH_COURSES, FETCH_COURSE, FETCH_LEARNING_PATHS, USER_LOGIN} from "../actionTypes";
 import axios from "../../axios/axiosInstance"
 
 export const coursesAction = {
@@ -25,5 +25,11 @@ export const coursesAction = {
                 learningPaths: resp.data
             })
         })
-},
+    },
+    userLogIn (user) {
+        return {
+            type: USER_LOGIN,
+            user: user
+        }
+    }
 }

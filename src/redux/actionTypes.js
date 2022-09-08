@@ -21,3 +21,5 @@ export const FETCH_LEARNING_PATHS = "FETCH_LEARNING_PATHS"
 export const FETCH_EXAMS = "FETCH_EXAMS"
 export const FETCH_EXAM = "FETCH_EXAM"
 export const CHANGE_ANSWER = "CHANGE_ANSWER"
+
+export const USER_LOGIN = "USER_LOGIN"

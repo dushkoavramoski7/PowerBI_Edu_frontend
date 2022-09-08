@@ -25,6 +25,12 @@ export const routesConfig = [
         exact: true
     },
     {
+        component: CoursesView,
+        path: '/courses/logged/:user',
+        title: 'CoursesView',
+        exact: true
+    },
+    {
         component: LearningPathView,
         path: '/learningPath',
         title: 'LearningPathView',

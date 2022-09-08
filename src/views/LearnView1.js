@@ -22,7 +22,7 @@ function LearnView1() {
     }, [])
 
     return (
-        <div className={'container p-5 mt-3'}>
+        <div className={'container p-5 mt-3'} >
             <div className={'row'}>
             <div className={'mb-2 col-6'}>
                 <IconButton size={'small'} className={'mb-1'} style={{marginRight: '10px'}}>
@@ -39,7 +39,7 @@ function LearnView1() {
                 <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)' , marginRight: 7, marginTop: '3px'}}>Learning Page - 2</span>
             </div>
             </div>
-            <div className={`container p-3`}  style={{backgroundColor: 'rgba(255,255,255)' , height: '700px'}}>
+            <div className={`container p-3`}  style={{backgroundColor: 'rgba(255,255,255)' , height: '770px'}}>
                 <p className={'text-center'} style={{color: 'rgba(0,0,0,.65)', fontSize: '20px'}}>Introduction to dashboards for Power BI designers (1/3)</p>
                 <div className={'row text-center'}>
                     <div className={'col-6'} style={{
@@ -57,6 +57,7 @@ function LearnView1() {
 
                         <p style={{color: 'rgba(229, 170, 10, .8)', fontSize: '18px'}}>Advantages of dashboards</p>
                         Dashboards are a wonderful way to monitor your business and see all of your most important metrics at a glance.
+                        The visualizations on a dashboard can come from one underlying dataset or many, and from one underlying report or many.
                     </div>
                     <div className={'col-6 text-center'} style={{
                         textAlign: 'justify',
@@ -68,7 +69,7 @@ function LearnView1() {
                             overflow: 'hidden',
                             color: 'rgba(0,0,0,.55)'
                         }}>
-                             The visualizations on a dashboard can come from one underlying dataset or many, and from one underlying report or many. A dashboard combines on-premises and cloud data, providing a consolidated view regardless of where the data lives.
+                              A dashboard combines on-premises and cloud data, providing a consolidated view regardless of where the data lives.
                             A dashboard isn't just a pretty picture. It's highly interactive and the tiles update as the underlying data changes.
 
                             <p style={{color: 'rgba(229, 170, 10, .8)', fontSize: '18px'}}>Dashboard basics</p>
@@ -77,6 +78,9 @@ function LearnView1() {
                             The visualizations on a dashboard originate from reports and each report is based on a dataset. One way to think of a dashboard is as an entryway to the underlying reports and datasets. Selecting a visualization takes you to the report (and dataset) that it's based on.
 
                         </div>
+                        <br/>
+                        <br/>
+
                         <div className={'row'}>
                             <iframe width="100" height="280" src="https://www.youtube.com/embed/B_bAKrXAUh0"
                                     title="YouTube video player" frameBorder="2"

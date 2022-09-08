@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {communityAction} from "../redux/action/communityAction";
 import UploadCommunityModal from "./components/UploadCommunityModal";
-import axios from "../axios/axiosInstance";
+import axios from "../axios/axiosInstance2";
 import {FileIcon} from "react-file-icon";
 import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 import ChevronLeftRoundedIcon from '@mui/icons-material/ChevronLeftRounded';

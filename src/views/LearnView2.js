@@ -23,7 +23,19 @@ function LearnView2() {
     }, [])
 
     return (
-        <div className={'container p-5 mt-3'}>
+        <div className={'container p-5'} style={{marginTop: '-25px'}}>
+            <div className={'row'}>
+                <div className={'mb-2 col-6'}>
+
+                </div>
+                <div className={'mb-2 col-6 ml-5 d-flex justify-content-end'}>
+                    <IconButton size={'small'} className={'mb-1'} style={{marginRight: '7px'}}>
+                        <EastIcon fontSize={'small'}  onClick={() => history.push("/courses")}/>
+                    </IconButton>
+                    <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7, height: '22px', marginTop: '4px'}}/>
+                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)' , marginRight: 7, marginTop: '3px'}}>Courses</span>
+                </div>
+            </div>
             <div className={'row'}>
                 <div className={'mb-2 col-6'}>
                     <IconButton size={'small'} className={'mb-1'} style={{marginRight: '10px'}}>
@@ -40,12 +52,12 @@ function LearnView2() {
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)' , marginRight: 7, marginTop: '3px'}}>Learning Page - 3</span>
                 </div>
             </div>
-            <div className={`container p-3`}  style={{backgroundColor: 'rgba(255,255,255)' , height: '700px'}}>
+            <div className={`container p-3`}  style={{backgroundColor: 'rgba(255,255,255)' , height: '770px'}}>
                 <p className={'text-center'} style={{color: 'rgba(0,0,0,.65)', fontSize: '20px'}}>Explore Power BI Canvas (2/3)</p>
 
                 <div className={'row'}>
                     <div className={'col-6'}>
-                        <img src={logo1} width={600}  className="d-inline-block align-top p-2 text-center" alt=""/>
+                        <img src={logo1} style={{width: '100%'}}  className="d-inline-block align-top p-2 text-center" alt=""/>
 
                     </div>
                     <div className={'col-6'} style={{

@@ -1,5 +1,5 @@
 import {FETCH_COMMUNITY_DOCUMENTS, FETCH_COMMUNITY_LINKS} from "../actionTypes";
-import axios from "../../axios/axiosInstance";
+import axios from "../../axios/axiosInstance2";
 
 export const communityAction = {
     fetchCommunityDocuments: () => dispatch => {
