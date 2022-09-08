@@ -26,6 +26,7 @@ function Login() {
     const [snackbarMessage, setSnackbarMessage] = useState('');
 
     useEffect(() => {
+        window.scroll(0,0)
         formik.setValues({
             ...formik.values,
             name: '',
@@ -69,7 +70,7 @@ function Login() {
             <div className={'container p-5 mt-3 d-flex'}>
                     <div className={`row bg-white position-relative`} style={{height: '600px', width: '1300px'}}>
                         <div className={'col-6'}>
-                            <img src={logo} alt="" style={{height: '600px', width: '600px', marginLeft: '-13px'}}/>
+                            <img src={logo} alt="" style={{height: '600px', width: '100%', marginLeft: '-13px'}}/>
                         </div>
                         <div className={'col-6 mt-5'}>
                             <p style={{color: 'rgba(0,0,0,.55)', fontSize: '34px', marginBottom:'-5px'}}>Welcome to <b style={{color: 'rgba(234, 179, 2)'}}>PowerBI - Edu</b></p>
@@ -105,8 +106,8 @@ function Login() {
                                         {formik.touched.password && Boolean(formik.errors.password) ? (
                                             <span className={`${classes.errorText}`}>{formik.errors.password}</span>): null }
                                     </div>
-                                    <div className={'row'}>
-                                        <div className={'col-6'}>
+                                    <div className={'row mt-2'}>
+                                        <div className={'col-4'}>
                                             <Checkbox size="medium"
 
                                                       sx={{
@@ -119,11 +120,11 @@ function Login() {
                                                       }}/>
                                             <span className={'mt-1'}>Remember me</span>
                                         </div>
-                                        <div className={'col-6 mt-2'} style={{marginRight: '-15px'}}>
-                                            <p> Don't have an account? <a style={{color: 'rgba(234, 179, 2)', cursor: 'pointer', fontWeight: 'bold'}} onClick={() => history.push("/register")}>Create one!</a></p>
-                                        </div>
                                     </div>
                                     <div className={'row'} style={{marginRight:'2px', marginTop:'42px'}}>
+                                        <div className={'d-flex justify-content-center'}>
+                                            <p> Don't have an account? <a style={{color: 'rgba(234, 179, 2)', cursor: 'pointer', fontWeight: 'bold'}} onClick={() => history.push("/register")}>Create one!</a></p>
+                                        </div>
                                         <Button sx={{borderColor: 'rgba(234, 179, 2)',
                                             backgroundColor: 'rgba(234, 179, 2)',
                                             marginTop: '8px',

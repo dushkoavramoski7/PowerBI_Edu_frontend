@@ -24,12 +24,12 @@ function Register() {
     const dispatch = useDispatch();
     const classes = useStyles(uploadCommunityModalStyle);
 
-
-
     useEffect(() => {
+        window.scroll(0,0)
         dispatch(influencersAction.fetch());
         dispatch(coursesAction.fetchCourses());
     }, []);
+
     const initialValues = {
         name: '' ,
         surname: '' ,
@@ -163,7 +163,10 @@ function Register() {
 
 
                                 </div>
-                                    <div className={'row'} style={{marginRight:'5px', marginTop:'42px', marginLeft:'4px'}}>
+                                    <div className={'row'} style={{marginRight:'5px', marginTop:'10px', marginLeft:'4px'}}>
+                                        <div className={'d-flex justify-content-center'}>
+                                            <p> Already have an account? <a style={{color: 'rgba(234, 179, 2)', cursor: 'pointer', fontWeight: 'bold'}} onClick={() => history.push("/login")}>Login!</a></p>
+                                        </div>
                                         <Button sx={{borderColor: 'rgba(234, 179, 2)',
                                             backgroundColor: 'rgba(234, 179, 2)',
                                             marginTop: '8px',
