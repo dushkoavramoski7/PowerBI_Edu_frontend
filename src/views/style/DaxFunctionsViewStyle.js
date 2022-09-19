@@ -3,5 +3,8 @@ export const daxFunctionsViewStyle = (theme) => {
         bodyStyle: {
             ...theme.common.bodyStyle
         },
+        greyBorderHover: {
+            ...theme.common.greyBorderHover
+        },
     }
 }

@@ -74,6 +74,11 @@ export const theme = createTheme({
             "&:hover": {
                backgroundColor: 'rgba(0,0,0,.016)'
             },
+        },
+        greyBorderHover: {
+            "&:hover": {
+                border: '1px solid rgba(0, 0, 0, .1)'
+            },
         }
     }
 })

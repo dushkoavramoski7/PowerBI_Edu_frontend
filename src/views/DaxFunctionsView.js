@@ -39,7 +39,7 @@ function DaxFunctionsView() {
                     <div className={'row justify-content-around'}>
                     {daxFunctionsCategories && daxFunctionsCategories.map((category) => {
                         return (
-                            <div className={'col-3 d-flex justify-content-center m-2'} style={{borderRadius: '13px', backgroundColor: 'rgba(243, 213, 102, .09)', height: '200px', cursor: 'pointer', width: '32%'}}
+                            <div className={`col-3 d-flex justify-content-center m-2 ${classes.greyBorderHover}`} style={{borderRadius: '13px', backgroundColor: 'rgba(243, 213, 102, .09)', height: '200px', cursor: 'pointer', width: '32%'}}
                                 onClick={() => {openDAXFunctionModal(category)}}
                             >
                                 <span className={'align-self-center text-center'}>

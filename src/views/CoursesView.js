@@ -45,7 +45,7 @@ function CoursesView() {
                     <div className={`row justify-content-around mt-3 `}>
                         {courses && courses.filter(item => item.service === 'PowerBI Desktop').map((course) => {
                             return(
-                                <div style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}} className={`col-3 ${classes.greyHover}`}
+                                <div style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}} className={`col-3 ${classes.greyHover} ${classes.greyBorderHover}`}
                                     onClick={() => history.push("/courses/" + course.id)}>
                                     <div className={'row mt-0'}>
                                         <div className={'col-2 pt-4 d-flex justify-content-center'}>
@@ -108,7 +108,7 @@ function CoursesView() {
                     <div className={'row justify-content-around mt-3'}>
                         {courses && courses.filter(item => item.service === 'PowerBI Mobile').map((course) => {
                             return(
-                                <div className={'col-3'} style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}}
+                                <div className={`col-3 ${classes.greyBorderHover}`} style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}}
                                      onClick={() => history.push("/courses/" + course.id)}>
                                     <div className={'row mt-0'}>
                                         <div className={'col-2 pt-4 d-flex justify-content-center'}>
@@ -171,7 +171,7 @@ function CoursesView() {
                         <div className={'row justify-content-around mt-3'}>
                             {courses && courses.filter(item => item.service === 'PowerBI Service').map((course) => {
                                 return(
-                                    <div className={'col-3'} style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}}
+                                    <div className={`col-3 ${classes.greyBorderHover}`} style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}}
                                          onClick={() => history.push("/courses/" + course.id)}>
                                         <div className={'row mt-0'}>
                                             <div className={'col-2 pt-4 d-flex justify-content-center'}>

@@ -9,5 +9,8 @@ export const coursesViewStyle = (theme) => {
         hoverMainColorBorder: {
             ...theme.common.hoverMainColorBorder
         },
+        greyBorderHover: {
+            ...theme.common.greyBorderHover
+        },
     }
 }

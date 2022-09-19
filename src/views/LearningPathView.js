@@ -32,7 +32,7 @@ function LearningPathView() {
             learningPath?.courses && learningPath?.courses.slice(startOffset, startOffset + 2).map((course, i) => {
                 courses.push(
                     <div className={`col-5`}>
-                        <div style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '100%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}} className={`col-3 ${classes.greyHover}`}
+                        <div style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '100%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}} className={`col-3 ${classes.greyHover} ${classes.greyBorderHover}`}
                              onClick={() => history.push("/courses/" + course.id)}>
                             <div className={'row mt-0'}>
                                 <div className={'col-2 pt-4 d-flex justify-content-center'}>
@@ -106,7 +106,7 @@ function LearningPathView() {
             learningPath?.courses && learningPath?.courses.slice(startOffset1, startOffset1 + 2).map((course, i) => {
                 courses.push(
                     <div className={`col-5`}>
-                        <div style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '100%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}} className={`col-3 ${classes.greyHover}`}
+                        <div style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '100%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}} className={`col-3 ${classes.greyHover} ${classes.greyBorderHover}`}
                              onClick={() => history.push("/courses/" + course.id)}>
                             <div className={'row mt-0'}>
                                 <div className={'col-2 pt-4 d-flex justify-content-center'}>
