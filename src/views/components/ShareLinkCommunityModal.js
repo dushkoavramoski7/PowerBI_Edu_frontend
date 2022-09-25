@@ -9,9 +9,9 @@ import * as yup from "yup";
 
 let lengthInput = 100;
 const validationSchema = yup.object({
-    name: yup.string("Name is required.").required("Name is required."),
-    description: yup.string("Description is required.").required("Description is required.").max(lengthInput, "Description must be at most " + lengthInput + " characters."),
-    url: yup.string("Url is required.").required("Url is required."),
+    name: yup.string("Name is required").required("Name is required"),
+    description: yup.string("Description is required").required("Description is required").max(lengthInput, "Description must be at most " + lengthInput + " characters"),
+    url: yup.string("Url is required").required("Url is required"),
 });
 
 function ShareLinkCommunityModal ({show, closeShareLinkModal, share}) {

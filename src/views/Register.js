@@ -5,18 +5,17 @@ import {useDispatch} from "react-redux";
 import {Button, TextField} from "@mui/material";
 import {useStyles} from "../factory/StyleFactory";
 import {uploadCommunityModalStyle} from "./components/style/UploadCommunityModalStyle";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {influencersAction} from "../redux/action/influencersAction";
 import {coursesAction} from "../redux/action/coursesAction";
-import SnackbarAlert from "./components/SnackbarAlert";
 
 
 const validationSchema = yup.object({
-    name: yup.string("name is required.").required("name is required."),
-    surname: yup.string("surname is required.").required("surname is required."),
-    username: yup.string("username is required.").required("username is required."),
-    email: yup.string("email is required.").required("email is required."),
-    password: yup.string("password is required.").required("password is required."),
+    name: yup.string("name is required").required("name is required"),
+    surname: yup.string("surname is required").required("surname is required"),
+    username: yup.string("username is required").required("username is required"),
+    email: yup.string("email is required").required("email is required").email("email not valid"),
+    password: yup.string("password is required").required("password is required"),
     repeatPassword: yup.string().oneOf([yup.ref('password'), null], 'passwords must match')
 });
 function Register() {

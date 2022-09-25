@@ -9,9 +9,9 @@ import * as yup from "yup";
 
 let lengthDescriptionInput = 100;
 const validationSchema = yup.object({
-    description: yup.string("Enter document description.")
-        .required("Enter document description.")
-        .max(lengthDescriptionInput, "Document description text must be at most " + lengthDescriptionInput + " characters."),
+    description: yup.string("Enter document description")
+        .required("Enter document description")
+        .max(lengthDescriptionInput, "Document description text must be at most " + lengthDescriptionInput + " characters"),
 });
 
 function UploadCommunityModal({show, closeUploadModal, upload}) {

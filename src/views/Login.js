@@ -10,12 +10,11 @@ import {useDispatch} from "react-redux";
 import {Button, Checkbox, TextField} from "@mui/material";
 import {useStyles} from "../factory/StyleFactory";
 import {uploadCommunityModalStyle} from "./components/style/UploadCommunityModalStyle";
-import StartIcon from "@mui/icons-material/Start";
 import SnackbarAlert from "./components/SnackbarAlert";
 
 const validationSchema = yup.object({
-    username: yup.string("Username is required.").required("Username is required."),
-    password: yup.string("Password is required.").required("Password is required."),
+    username: yup.string("Username is required").required("Username is required"),
+    password: yup.string("Password is required").required("Password is required"),
 });
 function Login() {
     const history = useHistory();
