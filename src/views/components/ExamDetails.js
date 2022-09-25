@@ -32,8 +32,8 @@ function ExamDetails() {
         <>
             <div className={'container p-5 mt-3'}>
                 <div className={'mb-2'}>
-                    <IconButton size={'small'} className={'mb-1'} style={{marginRight: '10px'}}>
-                        <WestIcon fontSize={'small'}  onClick={() => history.push("/exams")}/>
+                    <IconButton size={'medium'} className={'mb-1'} style={{marginRight: '10px'}}>
+                        <WestIcon fontSize={'medium'}  onClick={() => history.push("/exams")}/>
                     </IconButton>
                     <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)'}}>Exams</span>

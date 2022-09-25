@@ -27,28 +27,28 @@ function LearnView3() {
 
                 </div>
                 <div className={'mb-2 col-6 ml-5 d-flex justify-content-end'}>
-                    <IconButton size={'small'} className={'mb-1'} style={{marginRight: '7px'}}>
-                        <EastIcon fontSize={'small'}  onClick={() => history.push("/courses")}/>
+                    <IconButton size={'medium'} className={'mb-1'} style={{marginRight: '7px'}}>
+                        <EastIcon fontSize={'medium'}  onClick={() => history.push("/courses")}/>
                     </IconButton>
-                    <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7, height: '22px', marginTop: '4px'}}/>
-                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)' , marginRight: 7, marginTop: '3px'}}>Courses</span>
+                    <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7, height: '22px', marginTop: '8px'}}/>
+                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)' , marginRight: 7, marginTop: '8px'}}>Courses</span>
                 </div>
 
             </div>
             <div className={'row'}>
                 <div className={'mb-2 col-6'}>
-                    <IconButton size={'small'} className={'mb-1'} style={{marginRight: '10px'}}>
-                        <WestIcon fontSize={'small'}  onClick={() => history.push("/courses/learn2/" + course.id)}/>
+                    <IconButton size={'medium'} className={'mb-1'} style={{marginRight: '10px'}}>
+                        <WestIcon fontSize={'medium'}  onClick={() => history.push("/courses/learn2/" + course.id)}/>
                     </IconButton>
                     <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)'}}>Learning Page - 2</span>
                 </div>
                 <div className={'mb-2 col-6 ml-5 d-flex justify-content-end'}>
-                    <IconButton size={'small'} className={'mb-1'} style={{marginRight: '7px'}}>
-                        <EastIcon fontSize={'small'}  onClick={() => history.push("/exams")}/>
+                    <IconButton size={'medium'} className={'mb-1'} style={{marginRight: '7px'}}>
+                        <EastIcon fontSize={'medium'}  onClick={() => history.push("/exams")}/>
                     </IconButton>
-                    <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7, height: '22px', marginTop: '4px'}}/>
-                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)' , marginRight: 7, marginTop: '3px'}}>Exams</span>
+                    <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7, height: '22px', marginTop: '8px'}}/>
+                    <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.75)' , marginRight: 7, marginTop: '8px'}}>Exams</span>
                 </div>
 
             </div>

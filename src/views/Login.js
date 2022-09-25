@@ -74,7 +74,7 @@ function Login() {
                         </div>
                         <div className={'col-6 mt-5'}>
                             <p style={{color: 'rgba(0,0,0,.55)', fontSize: '34px', marginBottom:'-5px'}}>Welcome to <b style={{color: 'rgba(234, 179, 2)'}}>PowerBI - Edu</b></p>
-                            <i style={{color: 'rgba(0,0,0,.35)'}}>Interactive e-learning web application for data visualization software, <i style={{color: 'rgba(234, 179, 2)'}}>PowerBI</i> </i>
+                            <i style={{color: 'rgba(0,0,0,.35)'}}>Interactive e-learning web application for data visualization, <b style={{color: 'rgba(234, 179, 2)'}}>PowerBI</b> </i>
                             <FormikProvider value={formik} >
                                 <form onSubmit={formik.handleSubmit}>
                                     <div style={{marginTop: '20px'}}>
