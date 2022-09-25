@@ -16,7 +16,7 @@ const validationSchema = yup.object({
     username: yup.string("username is required").required("username is required"),
     email: yup.string("email is required").required("email is required").email("email not valid"),
     password: yup.string("password is required").required("password is required"),
-    repeatPassword: yup.string().oneOf([yup.ref('password'), null], 'passwords must match')
+    repeatPassword: yup.string("repeat of password is required").required("repeat of password is required").oneOf([yup.ref('password'), null], 'passwords must match')
 });
 function Register() {
     const history = useHistory();
