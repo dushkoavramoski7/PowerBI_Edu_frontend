@@ -82,6 +82,7 @@ function Login() {
                                                    className={classes.inputField}
                                                    label="Username *"
                                                    value={formik.values.username}
+                                                   onBlur={formik.handleBlur}
                                                    onChange={formik.handleChange}
                                                    error={formik.touched.username && Boolean(formik.errors.username)}
                                                    fullWidth={true}
@@ -96,6 +97,7 @@ function Login() {
                                                    className={classes.inputField}
                                                    label="Password *"
                                                    value={formik.values.password}
+                                                   onBlur={formik.handleBlur}
                                                    onChange={formik.handleChange}
                                                    error={formik.touched.password && Boolean(formik.errors.password)}
                                                    fullWidth={true}

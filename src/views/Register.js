@@ -68,6 +68,7 @@ function Register() {
                                                        className={classes.inputField}
                                                        label="Name *"
                                                        value={formik.values.name}
+                                                       onBlur={formik.handleBlur}
                                                        onChange={formik.handleChange}
                                                        error={formik.touched.name && Boolean(formik.errors.name)}
                                                        fullWidth={true}
@@ -85,6 +86,7 @@ function Register() {
                                                        label="Surname *"
                                                        value={formik.values.surname}
                                                        onChange={formik.handleChange}
+                                                       onBlur={formik.handleBlur}
                                                        error={formik.touched.surname && Boolean(formik.errors.surname)}
                                                        fullWidth={true}
                                                        margin={"normal"}
@@ -104,6 +106,7 @@ function Register() {
                                                    label="Username *"
                                                    value={formik.values.username}
                                                    onChange={formik.handleChange}
+                                                   onBlur={formik.handleBlur}
                                                    error={formik.touched.username && Boolean(formik.errors.username)}
                                                    fullWidth={true}
                                                    margin={"normal"}
@@ -116,6 +119,7 @@ function Register() {
                                                    name="email"
                                                    className={classes.inputField}
                                                    label="Email *"
+                                                   onBlur={formik.handleBlur}
                                                    value={formik.values.email}
                                                    onChange={formik.handleChange}
                                                    error={formik.touched.email && Boolean(formik.errors.email)}
@@ -132,6 +136,7 @@ function Register() {
                                                name="password"
                                                className={classes.inputField}
                                                label="Password *"
+                                               onBlur={formik.handleBlur}
                                                value={formik.values.password}
                                                onChange={formik.handleChange}
                                                error={formik.touched.password && Boolean(formik.errors.password)}
