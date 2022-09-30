@@ -12,5 +12,8 @@ export const coursesViewStyle = (theme) => {
         greyBorderHover: {
             ...theme.common.greyBorderHover
         },
+        progressBarStyle: {
+            ...theme.common.progressBarStyle
+        },
     }
 }

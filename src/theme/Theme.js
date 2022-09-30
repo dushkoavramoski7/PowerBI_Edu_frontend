@@ -79,6 +79,11 @@ export const theme = createTheme({
             "&:hover": {
                 border: '1px solid rgba(0, 0, 0, .1)'
             },
+        },
+        progressBarStyle: {
+            "& .MuiLinearProgress-barColorPrimary": {
+                backgroundColor: 'rgba(255,255,255,.45)',
+            },
         }
     }
 })

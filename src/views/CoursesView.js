@@ -6,7 +6,7 @@ import {useEffect, useState} from "react";
 import {coursesAction} from "../redux/action/coursesAction";
 import TurnedInNotRoundedIcon from '@mui/icons-material/TurnedInNotRounded';
 import StarRoundedIcon from '@mui/icons-material/StarRounded';
-import {Chip} from "@mui/material";
+import {Box, Chip, LinearProgress} from "@mui/material";
 import {useHistory, useParams} from "react-router-dom";
 import {influencersAction} from "../redux/action/influencersAction";
 import SnackbarAlert from "./components/SnackbarAlert";
@@ -43,6 +43,12 @@ function CoursesView() {
                     <span style={{borderLeft: '5px solid rgba(229, 170, 10, .8)', marginRight: 7}}/>
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Desktop</span>
                     <div className={`row justify-content-around mt-3 `}>
+                        {courses.length === 0 ?
+                            <Box className={"mt-2"} sx={{width: '100%'}}>
+                                <LinearProgress className={`${classes.progressBarStyle} mt-2`} sx={{backgroundColor: 'rgba(229, 170, 10, .8)'}} variant="indeterminate"/>
+                            </Box>:
+                            null
+                        }
                         {courses && courses.filter(item => item.service === 'PowerBI Desktop').map((course) => {
                             return(
                                 <div style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}} className={`col-3 ${classes.greyHover} ${classes.greyBorderHover}`}
@@ -106,6 +112,12 @@ function CoursesView() {
                     <span style={{borderLeft: '5px solid rgba(7, 144, 168)', marginRight: 7}}/>
                     <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Mobile</span>
                     <div className={'row justify-content-around mt-3'}>
+                        {courses.length === 0 ?
+                            <Box className={"mt-2"} sx={{width: '100%'}}>
+                                <LinearProgress className={`${classes.progressBarStyle} mt-2`} sx={{backgroundColor: 'rgba(7, 144, 168)'}} variant="indeterminate"/>
+                            </Box>:
+                            null
+                        }
                         {courses && courses.filter(item => item.service === 'PowerBI Mobile').map((course) => {
                             return(
                                 <div className={`col-3 ${classes.greyBorderHover}`} style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}}
@@ -169,6 +181,12 @@ function CoursesView() {
                         <span style={{borderLeft: '5px solid rgba(168, 81, 10, .9)', marginRight: 7}}/>
                         <span style={{fontWeight: 'bold', color: 'rgba(0,0,0,.55)'}}>PowerBI - Service</span>
                         <div className={'row justify-content-around mt-3'}>
+                            {courses.length === 0 ?
+                                <Box className={"mt-2"} sx={{width: '100%'}}>
+                                    <LinearProgress className={`${classes.progressBarStyle} mt-2`} sx={{backgroundColor: 'rgba(168, 81, 10, .9)'}} variant="indeterminate"/>
+                                </Box>:
+                                null
+                            }
                             {courses && courses.filter(item => item.service === 'PowerBI Service').map((course) => {
                                 return(
                                     <div className={`col-3 ${classes.greyBorderHover}`} style={{borderRadius: '13px', backgroundColor: 'rgba(255,255,255)', height: '200px', cursor: 'pointer', width: '31%', boxShadow: 'box-shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px', position: 'relative'}}
