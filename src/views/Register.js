@@ -50,7 +50,7 @@ function Register() {
 
     return (
         <div className={'container p-5 mt-3 d-flex'}>
-            <div className={`container p-3 m-auto`} style={{backgroundColor: 'rgba(255,255,255)' , height: '600px'}}>
+            <div className={`container p-3 m-auto`} style={{backgroundColor: 'rgba(255,255,255)' , height: '640px'}}>
                 <div className={`row mt-3`} >
                     <div className={'col-1'}>
 

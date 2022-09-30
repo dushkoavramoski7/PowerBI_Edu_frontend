@@ -47,7 +47,7 @@ function TakingExam() {
         enableReinitialize: true,
         onSubmit: values => {
             dispatch(examAction.submitAnswers(answers, exam.id, success => {
-                history.push("/exams/result/" + success)
+                history.push("/exams/result/" + Math.round(success))
                 window.location.reload(false);
             }));
         }
